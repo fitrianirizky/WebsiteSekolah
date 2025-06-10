@@ -447,13 +447,6 @@ a[href*="tambah"]:hover {
                                           </div>
                                           <div class="modal-body">
                                             <p>Yakin ingin menghapus data user ini?</p>
-                                            <ul class="list-unstyled">
-                                              <li><strong>Id User:</strong> <?= htmlspecialchars($x['id_users']); ?></li>
-                                              <li><strong>Nama Lengkap:</strong> <?= htmlspecialchars($x['nama']); ?></li>
-                                              <li><strong>Username:</strong> <?= htmlspecialchars($x['username']); ?></li>
-                                              <li><strong>Password:</strong> <?= htmlspecialchars($x['password']); ?></li>
-                                              <li><strong>Role:</strong> <?= htmlspecialchars($x['role']); ?></li>
-                                            </ul>
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

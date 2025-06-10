@@ -416,9 +416,6 @@ a[href*="tambah"]:hover {
                                           </div>
                                           <div class="modal-body">
                                             <p>Yakin ingin menghapus data agama ini?</p>
-                                            <ul class="list-unstyled">
-                                              <li><strong>Agama:</strong> <?= htmlspecialchars($x['nama_agama'] ?? '-'); ?></li>
-                                            </ul>
                                           </div>
                                           <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>

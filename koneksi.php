@@ -130,7 +130,7 @@ class database{
         return mysqli_query($this->koneksi, $query);
     }
     
-    public function hapus_data_user($kodejurusan) {
+    public function hapus_data_user($id_users) {
         $query = "DELETE FROM users WHERE id_users = '".$id_users."'";
         return mysqli_query($this->koneksi, $query);
     }
