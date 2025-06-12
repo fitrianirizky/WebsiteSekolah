@@ -2,7 +2,6 @@
 session_start();
 
 // Redirect ke halaman login jika belum login
-// Redirect ke halaman login jika belum login
 if (!isset($_SESSION['id_users'])) {
     header("Location: ../login.php");
     exit();
@@ -20,10 +19,13 @@ if ($_POST && isset($_POST['id_agama'])) {
     $nama_agama = $_POST['nama_agama'];
     
     // Update data agama
-    $db->update_data_agama($id_agama, $nama_agama);
-    
+        if($db->update_data_agama($id_agama, $nama_agama)) {
+        $_SESSION['success'] = "Data berhasil diupdate";
+    } else {
+        $_SESSION['error'] = "Gagal mengupdate data agama";
+    }
     // Redirect untuk menghindari double submit
-    header("Location: " . $_SERVER['PHP_SELF']);
+     header("Location: dataagama.php?status=updated");
     exit();    
 }
 if(isset($_GET['status'])) {
@@ -31,6 +33,8 @@ if(isset($_GET['status'])) {
         echo '<script>alert("Data berhasil dihapus");</script>';
     } elseif($_GET['status'] == 'delete_failed') {
         echo '<script>alert("Gagal menghapus data");</script>';
+    } elseif($_GET['status'] == 'added') {
+        echo '<script>alert("Data agama berhasil ditambahkan");</script>';
     }
 }
 ?>
@@ -82,6 +86,8 @@ if(isset($_GET['status'])) {
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <style>
 
 table th, table td {
@@ -294,7 +300,7 @@ a[href*="tambah"]:hover {
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
-                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Logout</a>
+                  <a href="#" onclick="confirmLogout()" class="btn btn-default btn-flat float-end">Logout</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -523,9 +529,32 @@ a[href*="tambah"]:hover {
               },
               dom: '<"top-container"<"top-left"l><"top-right"f>>rt<"bottom-container"ip><"clear">'
           });
+          <?php if(isset($_GET['status'])): ?>
+        setTimeout(function(){
+            window.location.href = 'dataagama.php'; // Refresh tanpa parameter
+        }, 1500);
+    <?php endif; ?>
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Konfirmasi Logout',
+        text: "Apakah Anda yakin ingin keluar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Logout',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../logout.php';
+        }
+    });
+}
+</script>
     <!--end::Script-->
   </body>
   <!--end::Body-->

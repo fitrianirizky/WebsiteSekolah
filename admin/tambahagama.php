@@ -1,32 +1,40 @@
 <?php
-
 session_start();
 
 // Redirect ke halaman login jika belum login
 if(!isset($_SESSION['id_users'])) {
     header("Location: ../login.php");
-    if ($_SESSION['role'] != 'admin') {
-    header("Location: ../unauthorized.php"); // redirect jika bukan admin
     exit();
 }
+
+// Redirect jika bukan admin
+if ($_SESSION['role'] != 'admin') {
+    header("Location: ../unauthorized.php");
+    exit();
 }
 
 include "../koneksi.php";
 $db = new database();
 
-if (isset($_POST['simpan'])) {
-    // Validasi input
-    $nama_agama = isset($_POST['nama_agama']) ? $_POST['nama_agama'] : null;
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['simpan'])) {
+    $nama_agama = $_POST['nama_agama'];
 
-    if (empty($nama_agama)) { // Perbaikan kondisi
-        $error = "Semua kolom harus diisi!";
-    }else{
-        $db->tambahagama( // Gunakan salah satu fungsi
-            $nama_agama
-        );
-        header("location:dataagama.php");
+ if (empty($nama_agama)) {
+        $_SESSION['error'] = "Nama agama harus diisi!";
+        header("Location: tambahagama.php");
+        exit();
+    } else {
+        if($db->tambahagama($nama_agama)) {
+            $_SESSION['success'] = "Data agama berhasil ditambahkan";
+            header("Location: dataagama.php?status=added");
+            exit();
+        } else {
+            $_SESSION['error'] = "Gagal menambah data agama!";
+            header("Location: tambahagama.php");
+            exit();
+        }
     }
-}
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -75,6 +83,8 @@ if (isset($_POST['simpan'])) {
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -132,7 +142,7 @@ if (isset($_POST['simpan'])) {
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
-                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Logout</a>
+                  <a href="#" onclick="confirmLogout()" class="btn btn-default btn-flat float-end">Logout</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -184,7 +194,7 @@ if (isset($_POST['simpan'])) {
                       <div class="row mb-3">
                         <label for="nama_agama" class="col-sm-2 col-form-label">Nama Agama</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" name="namaagama" id="namaagama" />
+                          <input type="text" class="form-control" name="nama_agama" id="nama_agama" />
                         </div>
                       </div>
                       <div class="row mb-3">
@@ -276,6 +286,24 @@ if (isset($_POST['simpan'])) {
     });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Konfirmasi Logout',
+        text: "Apakah Anda yakin ingin keluar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Logout',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../logout.php';
+        }
+    });
+}
+</script>
     <!--end::Script-->
   </body>
   <!--end::Body-->

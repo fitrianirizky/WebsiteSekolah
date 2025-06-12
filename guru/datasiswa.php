@@ -72,6 +72,8 @@ if ($_POST && isset($_POST['nisn'])) {
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <style>
 
 table th, table td {
@@ -284,7 +286,7 @@ a[href*="tambah"]:hover {
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
-                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Logout</a>
+                  <a href="#" onclick="confirmLogout()" class="btn btn-default btn-flat float-end">Logout</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -459,6 +461,24 @@ a[href*="tambah"]:hover {
 });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Konfirmasi Logout',
+        text: "Apakah Anda yakin ingin keluar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Logout',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../logout.php';
+        }
+    });
+}
+</script>
     <!--end::Script-->
   </body>
   <!--end::Body-->

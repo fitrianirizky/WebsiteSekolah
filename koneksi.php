@@ -19,7 +19,7 @@ class database{
         "SELECT 
                 s.nisn AS 'nisn', 
                 s.nama AS 'nama', 
-                if(s.jeniskelamin='L','Laki-Laki','Perempuan') AS 'jeniskelamin',
+                IF(s.jeniskelamin='L','Laki-Laki','Perempuan') AS 'jeniskelamin',
                 j.namajurusan AS 'jurusan',
                 s.kodejurusan AS 'kodejurusan', 
                 s.kelas AS 'kelas', 

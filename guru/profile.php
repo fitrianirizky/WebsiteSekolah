@@ -66,6 +66,9 @@ $profile_image = "../dist/assets/img/teacher.png"; // Gambar default
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
     <style>
       .profile-container {
         background: white;
@@ -156,7 +159,7 @@ $profile_image = "../dist/assets/img/teacher.png"; // Gambar default
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
-                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Logout</a>
+                  <a href="#" onclick="confirmLogout()" class="btn btn-default btn-flat float-end">Logout</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -197,17 +200,6 @@ $profile_image = "../dist/assets/img/teacher.png"; // Gambar default
                       <div class="col-md-3 detail-label">Role:</div>
                       <div class="col-md-9"><?php echo $_SESSION['role']; ?></div>
                     </div>
-
-                    <div class="row detail-item">
-                      <div class="col-md-3 detail-label">Terakhir Login:</div>
-                      <div class="col-md-9"><?php echo $_SESSION['last_login'] ?? 'N/A'; ?></div>
-                    </div>
-                  </div>
-
-                  <div class="text-center mt-4">
-                    <a href="../logout.php" class="btn btn-outline-danger">
-                      <i class="bi bi-box-arrow-right me-1"></i> Logout
-                    </a>
                   </div>
                 </div>
               </div>
@@ -276,6 +268,25 @@ $profile_image = "../dist/assets/img/teacher.png"; // Gambar default
       });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <script>
+      function confirmLogout() {
+    Swal.fire({
+        title: 'Konfirmasi Logout',
+        text: "Apakah Anda yakin ingin keluar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Logout',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../logout.php';
+        }
+    });
+}
+</script>
+    
     <!--end::Script-->
   </body>
   <!--end::Body-->

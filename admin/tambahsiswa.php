@@ -19,16 +19,16 @@ $db = new database();
 
 $error = ""; // Variabel untuk menyimpan pesan error
 
-if (isset($_POST['simpan'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['simpan'])) {
     // Validasi input
-    $nisn = isset($_POST['nisn']) ? $_POST['nisn'] : null;
-    $nama = isset($_POST['nama']) ? $_POST['nama'] : null;
-    $jeniskelamin = isset($_POST['jeniskelamin']) ? $_POST['jeniskelamin'] : null;
-    $kodejurusan = isset($_POST['kodejurusan']) ? $_POST['kodejurusan'] : null;
-    $kelas = isset($_POST['kelas']) ? $_POST['kelas'] : null;
-    $alamat = isset($_POST['alamat']) ? $_POST['alamat'] : null;
-    $agama = isset($_POST['agama']) ? $_POST['agama'] : null;
-    $nohp = isset($_POST['nohp']) ? $_POST['nohp'] : null;
+   $nisn = $_POST['nisn'] ?? null;
+    $nama = $_POST['nama'] ?? null;
+    $jeniskelamin = $_POST['jeniskelamin'] ?? null;
+    $kodejurusan = $_POST['kodejurusan'] ?? null;
+    $kelas = $_POST['kelas'] ?? null;
+    $alamat = $_POST['alamat'] ?? null;
+    $agama = $_POST['agama'] ?? null;
+    $nohp = $_POST['nohp'] ?? null;
 
     // Validasi kolom kosong
     if (empty($nisn) || empty($nama) || empty($jeniskelamin) || empty($kodejurusan) || empty($kelas) || empty($alamat) || empty($agama) || empty($nohp)) {
@@ -45,7 +45,7 @@ if (isset($_POST['simpan'])) {
             $agama,
             $nohp
         );
-        header("location:datasiswa.php");
+         header("Location: datasiswa.php");
         exit; // Penting untuk menghentikan eksekusi setelah header()
     }
 }
@@ -98,6 +98,8 @@ if (isset($_POST['simpan'])) {
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -155,7 +157,7 @@ if (isset($_POST['simpan'])) {
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
-                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Logout</a>
+                  <a href="#" onclick="confirmLogout()" class="btn btn-default btn-flat float-end">Logout</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -365,6 +367,24 @@ if (isset($_POST['simpan'])) {
     });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Konfirmasi Logout',
+        text: "Apakah Anda yakin ingin keluar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Logout',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../logout.php';
+        }
+    });
+}
+</script>
     <!--end::Script-->
   </body>
   <!--end::Body-->

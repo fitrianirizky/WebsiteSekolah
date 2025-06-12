@@ -18,19 +18,21 @@ if(isset($_GET['nisn'])) {
     $nisn= $_GET['nisn'];
     
     try {
+        // Ganti dengan method delete yang sesuai di class database Anda
         $result = $db->hapus_data_siswa($nisn);
         
-        if($result) {
+        if ($result) {
             header("Location: datasiswa.php?status=deleted");
         } else {
             header("Location: datasiswa.php?status=delete_failed");
         }
+        exit();
     } catch (Exception $e) {
-        header("Location: datasiswa.php?status=delete_error");
+        header("Location: datasiswa.php?status=delete_failed");
+        exit();
     }
+} else {
+    header("Location: datasiswa.php");
     exit();
 }
-
-header("Location: datasiswa.php");
-exit();
 ?>

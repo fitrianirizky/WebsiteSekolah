@@ -17,7 +17,7 @@ include "../koneksi.php";
 $db = new database();
 
 // Proses form edit jika ada POST request
-if ($_POST && isset($_POST['nisn'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['nisn'])) {
     $nisn = $_POST['nisn'];
     $nama = $_POST['nama'];
     $jeniskelamin = $_POST['jeniskelamin'];
@@ -31,7 +31,7 @@ if ($_POST && isset($_POST['nisn'])) {
     $db->update_data_siswa($nisn, $nama, $jeniskelamin, $kelas, $alamat, $nohp, $jurusan, $agama);
     
     // Redirect untuk menghindari double submit
-    header("Location: " . $_SERVER['PHP_SELF']);
+    header("Location: datasiswa.php?status=updated");
     exit();    
 }
 if(isset($_GET['status'])) {
@@ -39,8 +39,10 @@ if(isset($_GET['status'])) {
         echo '<script>alert("Data berhasil dihapus");</script>';
     } elseif($_GET['status'] == 'delete_failed') {
         echo '<script>alert("Gagal menghapus data");</script>';
+    } elseif($_GET['status'] == 'updated') {
+        echo '<script>alert("Data berhasil diperbarui");</script>';
     }
-}
+  }
 ?>
 <!doctype html>
 <html lang="en">
@@ -89,6 +91,8 @@ if(isset($_GET['status'])) {
     <!--begin::Required Plugin(AdminLTE)-->
     <link rel="stylesheet" href="../dist/css/adminlte.css" />
     <!--end::Required Plugin(AdminLTE)-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
   <style>
 
 table th, table td {
@@ -262,7 +266,6 @@ a[href*="tambah"]:hover {
               </a>
             </li>
             <li class="nav-item d-none d-md-block"><a href="index.php" class="nav-link">Home</a></li>
-            <li class="nav-item d-none d-md-block"><a href="#" class="nav-link">Contact</a></li>
           </ul>
           <!--end::Start Navbar Links-->
           <!--begin::End Navbar Links-->
@@ -302,7 +305,7 @@ a[href*="tambah"]:hover {
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
-                  <a href="../logout.php" class="btn btn-default btn-flat float-end">Logout</a>
+                  <a href="#" onclick="confirmLogout()" class="btn btn-default btn-flat float-end">Logout</a>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -586,6 +589,24 @@ a[href*="tambah"]:hover {
 });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <script>
+function confirmLogout() {
+    Swal.fire({
+        title: 'Konfirmasi Logout',
+        text: "Apakah Anda yakin ingin keluar?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Logout',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = '../logout.php';
+        }
+    });
+}
+</script>
     <!--end::Script-->
   </body>
   <!--end::Body-->
