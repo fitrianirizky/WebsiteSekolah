@@ -1,79 +1,143 @@
-# Rancangan Database Tiap Tabel
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/RancanganDatabase.png?raw=true)
+<h1 align="center">📘 Website Sekolah</h1>
 
-# Halaman Login
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/login.png?raw=true)
+---
 
-# Admin
+## 🔐 Halaman Login
+> Halaman awal untuk login ke sistem menggunakan role (Admin, Guru, atau Siswa)
 
-## Halaman Dashboard
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dashboard-admin.png?raw=true)
-
-## Halaman Data Siswa
 <p align="center">
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datasiswa-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdatasiswa-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdatasiswa-admin.png"/>
-</p> 
-
-## Halaman Data Jurusan
-<p align="center">
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datajurusan-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdatajurusan-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdatajurusan-admin.png"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/login.png?raw=true" width="300"/>
 </p>
 
-## Halaman Data Agama
+---
+
+## 🗂️ Rancangan Database
+> Struktur tabel yang digunakan dalam sistem manajemen data sekolah.
+
 <p align="center">
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dataagama-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdataagama-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdataagama-admin.png"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/RancanganDatabase.png?raw=true" width="300"/>
 </p>
 
-## Halaman Data User
+---
+
+## 🧑‍💼 ADMIN
+
+### 📊 Dashboard
+> Menampilkan ringkasan data seperti jumlah siswa, jurusan, dan user.
+
 <p align="center">
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datauser-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdatauser-admin.png"/>
-  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdatauser-admin.png"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dashboard-admin.png?raw=true" width="300"/>
 </p>
 
-## Halaman Tambah Data Siswa
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahsiswa-admin.png?raw=true) 
-## Halaman Tambah Data Jurusan
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahjurusan-admin.png?raw=true)
-## Halaman Tambah Data Agama
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahagama-admin.png?raw=true)
-## Halaman Tambah Data User
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahuser-admin.png?raw=true)
+### 👥 Data Siswa
+> Fitur untuk melihat, mengedit, dan menghapus data siswa.
 
-## Halaman Profil
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/profil-admin.png?raw=true)
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datasiswa-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdatasiswa-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdatasiswa-admin.png" width="300"/>
+</p>
 
+### 🏫 Data Jurusan
+> CRUD data jurusan untuk mengelompokkan siswa berdasarkan bidang studi.
 
-# Guru
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datajurusan-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdatajurusan-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdatajurusan-admin.png" width="300"/>
+</p>
 
-## Halaman Dashboard
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dashboard-guru.png?raw=true)
+### ☪️ Data Agama
+> Mengatur data agama untuk kebutuhan pendataan siswa.
 
-## Halaman Data Siswa
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datasiswa-guru.png?raw=true)
-## Halaman Data Jurusan
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datajurusan-guru.png?raw=true)
-## Halaman Data Agama
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dataagama-guru.png?raw=true)
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dataagama-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdataagama-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdataagama-admin.png" width="300"/>
+</p>
 
-## Halaman Profil
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/profil-guru.png?raw=true)
+### 👤 Data User
+> Mengatur data login dan hak akses pengguna sistem.
 
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datauser-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/editdatauser-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/hapusdatauser-admin.png" width="300"/>
+</p>
 
-# Siswa
+### ➕ Tambah Data
+> Formulir penambahan data siswa, jurusan, agama, dan user.
 
-## Halaman Dashboard
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dashboard-siswa.png?raw=true)
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahsiswa-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahjurusan-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahagama-admin.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/tambahuser-admin.png" width="300"/>
+</p>
 
-## Halaman Data Siswa
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datasiswa-siswa.png?raw=true)
+### 🙋‍♀️ Profil Admin
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/profil-admin.png?raw=true" width="300"/>
+</p>
 
-## Halaman Profil
-![alt text](https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/profil-siswa.png?raw=true)
+---
 
+## 👨‍🏫 GURU
+
+### 📊 Dashboard Guru
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dashboard-guru.png?raw=true" width="300"/>
+</p>
+
+### 👥 Data Master
+> Guru dapat mengakses data siswa, jurusan, dan agama untuk keperluan monitoring.
+
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datasiswa-guru.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datajurusan-guru.png" width="300"/>
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dataagama-guru.png" width="300"/>
+</p>
+
+### 🙋‍♂️ Profil Guru
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/profil-guru.png?raw=true" width="300"/>
+</p>
+
+---
+
+## 👨‍🎓 SISWA
+
+### 📊 Dashboard Siswa
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/dashboard-siswa.png?raw=true" width="300"/>
+</p>
+
+### 👥 Data Diri
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/datasiswa-siswa.png?raw=true" width="300"/>
+</p>
+
+### 🙋‍♂️ Profil Siswa
+<p align="center">
+  <img src="https://github.com/fitrianirizky/WebsiteSekolah/blob/main/ScreenshootsHalamanWebsite/profil-siswa.png?raw=true" width="300"/>
+</p>
+
+---
+
+## ⚙️ Teknologi yang Digunakan
+
+| Tools     | Keterangan                     |
+|-----------|--------------------------------|
+| PHP       | Bahasa pemrograman backend     |
+| MySQL     | Database Relasional            |
+| HTML/CSS  | Tampilan antarmuka             |
+| AdminLTE  | Template Admin Panel Responsive|
+
+---
+
+## 👩‍💼 Author
+> Dibuat oleh [**Rizky Nurjanah Fitriani**](https://github.com/fitrianirizky)
+
+<p align="center">
+  <img src="https://github.com/fitrianirizky.png" width="100" style="border-radius: 50%"/>
+</p>
